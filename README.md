@@ -17,19 +17,19 @@ This will be a simple tribute to the 1995 puzzle game Lights out. It the game yo
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] Proper use of Markdown
+- [x] Proper use of Markdown
 - [x] A concise and compelling elevator pitch
-- [ ] Description of key features
-- [ ] Description of how you will use each technology
-- [ ] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
+- [x] Description of key features
+- [x] Description of how you will use each technology
+- [x] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
 
 ### Elevator pitch
 
-Do you ever get tired of all the new games with all there bells and wistles? Do you ever just want to go back to the basics? Well Lights Out Evelution is just what you need. Lights Out Evelution is a simple throwback to the 1995 electronic puzzle game. You get the familiarity of the original game with a all new and improved progressive game. You can challenge your friends and climb the leaderboard.
+Do you ever get tired of all the new games with all their bells and wistles? Do you ever just want to go back to the basics? Well Lights Out Evelution is just what you need. Lights Out Evelution is a simple throwback to the 1995 electronic puzzle game. You get the familiarity of the original game with a all new and improved progressive game. You can challenge your friends and climb the leaderboard.
 
 ### Design
 
-![Design image](placeholder.png)
+![Design image](designDiagram.png)
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
@@ -42,20 +42,22 @@ sequenceDiagram
 
 ### Key features
 
-- Describe your key feature
-- Describe your key feature
-- Describe your key feature
+- Login, register
+- Play by clicking on squares, colors change for itself and adjacent squares
+- Receive notifications/updates for other player's scores.
+- Look at highscores and rank
+- Play again or logout
 
 ### Technologies
 
 I am going to use the required technologies in the following ways.
 
-- **HTML** - Uses HTML to display four different pages. These pages include a login/register page, a gameplay page and a page for the leaderboard.
-- **CSS** - Description here
-- **React** - Description here
-- **Service** - Description here
-- **DB/Login** - Description here
-- **WebSocket** - Description here
+- **HTML** - Displays four different pages. These pages include a login/register page, a gameplay page and a page for the leaderboard.
+- **CSS** - Transitions from level to level. Button pressing.
+- **React** - Login/register , advancement through the game, play again
+- **Service** - Endpoints for user authentication, scores and rank. Third party service to display motivational quotes on the home page.
+- **DB/Login** - Stores scores/rank and userdata. 
+- **WebSocket** - Broadcast users score along with name and current rank.
 
 ## 🚀 AWS deliverable
 
