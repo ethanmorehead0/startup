@@ -63,21 +63,21 @@ I am going to use the required technologies in the following ways.
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Server deployed and accessible with custom domain name** - [My server link](https://yourdomainnamehere.click).
+- [x] **Server deployed and accessible with custom domain name** - [My server link](https://yourdomainnamehere.click).
 
 ## 🚀 HTML deliverable
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **HTML pages** - I did not complete this part of the deliverable.
-- [ ] **Proper HTML element usage** - I did not complete this part of the deliverable.
-- [ ] **Links** - I did not complete this part of the deliverable.
-- [ ] **Text** - I did not complete this part of the deliverable.
-- [ ] **3rd party API placeholder** - I did not complete this part of the deliverable.
-- [ ] **Images** - I did not complete this part of the deliverable.
-- [ ] **Login placeholder** - I did not complete this part of the deliverable.
-- [ ] **DB data placeholder** - I did not complete this part of the deliverable.
-- [ ] **WebSocket placeholder** - I did not complete this part of the deliverable.
+- [x] **HTML pages** - I have three working HTML pages
+- [x] **Proper HTML element usage** - I used proper use of HTML to implement all three pages of my code
+- [x] **Links** - I added links between each of my pages and to this github page.
+- [x] **Text** - Text displayed on buttons and on the about page.
+- [x] **3rd party API placeholder** - On the main page there is a placeholder for the 3rd party heckler.
+- [x] **Images** - Uses an image in the icon and image showing the original lights out game on the about page.
+- [x] **Login placeholder** - index.html has a space to login.
+- [x] **DB data placeholder** - Scores are to be displayed on the score page.
+- [x] **WebSocket placeholder** - There is a space for the notifications inside of the play page.
 
 ## 🚀 CSS deliverable
 
