@@ -7,6 +7,12 @@ body {
 header {
   flex: 0 80px;
 }
+.logo{
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  width: 30px;
+}
 
 main {
   flex: 1 calc(100vh - 110px);
