@@ -22,7 +22,11 @@ main {
   align-items: center;
   justify-content: space-around;
 }
-
+.title{
+  font-size: 3em;
+  font-weight: bold;
+  color: #545454;
+}
 footer {
   flex: 0 30px;
 }
