@@ -3,7 +3,18 @@
     background-color: #f0f0f0;
 }
 .light{
-    background-color: #f0f0f0;
-    height: 2em;
-    text-size:
+    max-width: 10vw;
+    max-height: 10vw;
+    width: 10vh;
+    height: 10vh;
+    margin: 0.25vh;
+    font-size: 4em;
+}
+.nolight{
+    max-width: 10vw;
+    max-height: 10vw;
+    width: 10vh;
+    height: 10vh;
+    margin: 0.25vh;
+    font-size: 4em;
 }

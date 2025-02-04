@@ -23,9 +23,13 @@ main {
   justify-content: space-around;
 }
 .title{
-  font-size: 3em;
+  font-size: 2.5em;
   font-weight: bold;
   color: #545454;
+  
+  width: 80em;
+  min-width: 350px;
+  max-width: min(80vmin, 1000px);
 }
 footer {
   flex: 0 30px;
