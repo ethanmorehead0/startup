@@ -83,12 +83,12 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Header, footer, and main content body** - I did not complete this part of the deliverable.
-- [ ] **Navigation elements** - I did not complete this part of the deliverable.
-- [ ] **Responsive to window resizing** - I did not complete this part of the deliverable.
-- [ ] **Application elements** - I did not complete this part of the deliverable.
-- [ ] **Application text content** - I did not complete this part of the deliverable.
-- [ ] **Application images** - I did not complete this part of the deliverable.
+- [x] **Header, footer, and main content body** - I added CSS to format my header to display properly with my title and tabs, I made the body and footer display using css as well.
+- [x] **Navigation elements** - Navigation elements look good and still work.
+- [x] **Responsive to window resizing** - The text size changes with most sizes and when it doesn't it wraps properly and correctly. The Game Board also changes size.
+- [x] **Application elements** - The elements of the game light up when you hover over them and the boxes for score and level are each formated. The give up button at the bottom is as well.
+- [x] **Application text content** - The text paragraph on the about page wraps properly and displays around the image.
+- [x] **Application images** - The Image on the about page displays properly and the text wraps around it.
 
 ## 🚀 React part 1: Routing deliverable
 
