@@ -44,22 +44,26 @@
       </nav>
     </header>
 
-    <main class="bg-secondary bg-light text-dark text-center align-items-center">
+    <main class="bg-secondary bg-light text-dark text-center align-items-center d-flex flex-column justify-content-center align-items-center" style="width: 100%; height: 100vh;">
       <div class="player">
-        Mystery player
-      <ul class="notification">
-        <li class="player-name">Andy has started the game</li>
-        <li class="player-name">John has completed level 2!</li>
-        <li class="player-name">John scored 73 points!!!</li>
-      </ul>
+        <p class="h2"> Mystery player</p>
+        <ul class="notification">
+          <li class="player-name">Andy has started the game</li>
+          <li class="player-name">John has completed level 2!</li>
+          <li class="player-name">John scored 73 points!!!</li>
+        </ul>
 
       </div>
 
       <div class="game-stats">
-        <label for="count">♡</label>
-        <input type="text" id="count" value="--" readonly />
-        <label for="count">Score</label>
-        <input type="text" id="count" value="--" readonly />
+        <span class="game-info">
+          <label class = "label" for="health">❤️</label>
+          <input type="text" id="health" value="--" readonly />
+        </span>
+        <span class="game-info">
+          <label class = "label" for="score">Score:</label>
+          <input type="text" id="score" value="--" readonly />
+        </span>
       </div>
 
 
@@ -203,14 +207,14 @@
       </table>
       
       <div>
-        <button>Give up</button>
+        <button type="button" class="btn btn-outline-danger">Give up</button>
       </div>
     </main>
 
 
 
   </body>
-  <footer class="bg-dark text-white-50 fixed-bottom">
+  <footer class="bg-dark text-white-50">
     <div class="container-fluid">
       
     <span class="text-reset">Ethan Morehead</span>

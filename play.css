@@ -2,7 +2,12 @@
     height: 100vh;
     background-color: #f0f0f0;
 }
+.game-stats{
+    margin-bottom: 2vh;
+    margin-top: 1vh;
+}
 .light{
+    border-radius: 10%;
     max-width: 10vw;
     max-height: 10vw;
     width: 10vh;
@@ -10,11 +15,24 @@
     margin: 0.25vh;
     font-size: 4em;
 }
+.light:hover{
+    background-color: #c6b647 !important;
+    transition: background-color 0.3s ease !important;
+}
 .nolight{
+    border-radius: 10%;
     max-width: 10vw;
     max-height: 10vw;
     width: 10vh;
     height: 10vh;
     margin: 0.25vh;
     font-size: 4em;
+}
+.nolight:hover{
+    background-color: #8d834a !important;
+    transition: background-color 0.3s ease !important;
+}
+.hover{
+    background-color: #e0e0e0;
+    transition: background-color 0.3s ease;
 }
