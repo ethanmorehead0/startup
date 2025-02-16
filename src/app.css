@@ -1,38 +1,37 @@
-body {
+.body {
   display: flex;
   flex-direction: column;
   min-width: 375px;
-  
 }
 
 header {
   flex: 0 80px;
 }
-.logo{
+.logo {
   align-items: center;
   justify-content: center;
   height: 30px;
   width: 30px;
   margin-right: 5px;
 }
-.form{
+.form {
   width: 80%;
   background-color: #f0f0f0;
   height: 5vw;
   min-height: 20px;
   text-size-adjust: 1.5vw;
 }
-.bar{
+.bar {
   border: none;
   border-bottom: 1px solid #545454;
   font-size: 1.5vw;
   padding: 0.5em;
 }
-.bar-text{
+.bar-text {
   font-size: clamp(1vw, 0.6em, 2.4vw) !important;
 }
 
-.buttons{
+.buttons {
   font-size: clamp(1vw, 0.6em, 2.4vw) !important;
 }
 main {
@@ -42,7 +41,7 @@ main {
   align-items: center;
   justify-content: space-around;
 }
-.title{
+.title {
   font-size: clamp(5vw, 3em, 12vw);
   font-weight: bold;
   color: #545454;
@@ -50,7 +49,7 @@ main {
   min-width: 350px;
   max-width: min(80vmin, 1000px);
 }
-.apiCall{
+.apiCall {
   font-size: clamp(2vw, 1em, 4vw);
 }
 footer {
