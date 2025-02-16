@@ -2,18 +2,18 @@
 
 [My Notes](notes.md)
 
-This will be a simple tribute to the 1995 puzzle game Lights out. It the game you have a grid with mutiple squares some of them being on and others being off. You are tasked to turn all of the lights off. 
+This will be a simple tribute to the 1995 puzzle game Lights out. It the game you have a grid with mutiple squares some of them being on and others being off. You are tasked to turn all of the lights off.
 
 > [!NOTE]
->  This is a template for your startup application. You must modify this `README.md` file for each phase of your development. You only need to fill in the section for each deliverable when that deliverable is submitted in Canvas. Without completing the section for a deliverable, the TA will not know what to look for when grading your submission. Feel free to add additional information to each deliverable description, but make sure you at least have the list of rubric items and a description of what you did for each item.
+> This is a template for your startup application. You must modify this `README.md` file for each phase of your development. You only need to fill in the section for each deliverable when that deliverable is submitted in Canvas. Without completing the section for a deliverable, the TA will not know what to look for when grading your submission. Feel free to add additional information to each deliverable description, but make sure you at least have the list of rubric items and a description of what you did for each item.
 
 > [!NOTE]
->  If you are not familiar with Markdown then you should review the [documentation](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) before continuing.
+> If you are not familiar with Markdown then you should review the [documentation](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) before continuing.
 
 ## 🚀 Specification Deliverable
 
 > [!NOTE]
->  Fill in this sections as the submission artifact for this deliverable. You can refer to this [example](https://github.com/webprogramming260/startup-example/blob/main/README.md) for inspiration.
+> Fill in this sections as the submission artifact for this deliverable. You can refer to this [example](https://github.com/webprogramming260/startup-example/blob/main/README.md) for inspiration.
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
@@ -56,7 +56,7 @@ I am going to use the required technologies in the following ways.
 - **CSS** - Transitions from level to level. Button pressing.
 - **React** - Login/register , advancement through the game, play again
 - **Service** - Endpoints for user authentication, scores and rank. Third party service to display motivational quotes on the home page.
-- **DB/Login** - Stores scores/rank and userdata. 
+- **DB/Login** - Stores scores/rank and userdata.
 - **WebSocket** - Broadcast users score along with name and current rank.
 
 ## 🚀 AWS deliverable
@@ -94,9 +94,9 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Bundled using Vite** - I did not complete this part of the deliverable.
-- [ ] **Components** - I did not complete this part of the deliverable.
-- [ ] **Router** - Routing between login and voting components.
+- [x] **Bundled using Vite** - Vite installed and used for react components
+- [x] **Components** - Header, footer and pages components created
+- [x] **Router** - Routing between login, play, about and scores components.
 
 ## 🚀 React part 2: Reactivity
 
