@@ -3,17 +3,13 @@ import "./about.css";
 
 export function About() {
   return (
-    <main
-      className="container-fluid bg-light text-dark "
-      style="width: 100%; height: 100vh; padding: 3vw;"
-    >
+    <main className="container-fluid bg-light text-dark ">
       <div>
         <div id="picture" className="picture-box">
           <img
-            width="150px"
+            className="img1"
             src="OriginalLightsOut.jpg"
             alt="Original Lights Out game"
-            style="float: left;"
           />
         </div>
 

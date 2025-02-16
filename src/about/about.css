@@ -1,16 +1,26 @@
 .picture-box {
-    height: (220px);
-    width: 165px;
-    margin-bottom: 1em;
-    padding: 0.5em;
-    background: rgb(86, 89, 93);
-    border-radius: 15px;
-    float: left;
-    margin-right: 10px;
-  }
-  
-  #picture img {
-    border-radius: 15px;
-    margin-right: 1em;
-  }
-  
+  height: (220px);
+  width: 165px;
+  margin-bottom: 1em;
+  padding: 0.5em;
+  background: rgb(86, 89, 93);
+  border-radius: 15px;
+  float: left;
+  margin-right: 10px;
+}
+
+#picture img {
+  border-radius: 15px;
+  margin-right: 1em;
+}
+
+.main {
+  width: 100%;
+  height: 100vh;
+  padding: 3vw;
+}
+
+.img1 {
+  width: 150px;
+  float: left;
+}

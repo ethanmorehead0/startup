@@ -14,7 +14,7 @@ export default function App() {
         <header className="container-fluid">
           <nav className="navbar fixed-top navbar-dark px-3">
             <div className="navbar-brand">
-              <img class="logo" src="Lights_Out.ico" alt="Lights Out" />
+              <img className="logo" src="Lights_Out.ico" alt="Lights Out" />
               Lights Out Evolution
             </div>
             <menu className="navbar-nav">
