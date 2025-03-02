@@ -48,17 +48,9 @@ export function Notification(props) {
 
   return (
     <div className="player">
-      <p className="h2"> {userName}</p>
+      <p className="h2"> {Player}</p>
       <ul className="alerts" role="alert">
-        <div className="alert alert-primary game-start">
-          Andy has started the game
-        </div>
-        <div className="alert alert-warning level-complete">
-          John has completed level 2!
-        </div>
-        <div className="alert alert-success game-complete">
-          John scored 73 points!!!
-        </div>
+        <div id="player-messages">{createMessageArray()}</div>
       </ul>
     </div>
   );
