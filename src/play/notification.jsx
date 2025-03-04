@@ -1,6 +1,6 @@
 import React from "react";
 
-import { GameEvent, GameNotifier } from "./notifier";
+import { GameEvent, GameNotifier } from "./gameNotifier";
 
 export function Notification(props) {
   const userName = props.userName;
@@ -16,9 +16,9 @@ export function Notification(props) {
 
   function handleGameEvent(event) {
     setEvents((events) => {
-      let newEvents = [event, ...prevEvents];
-      if (newEvents.length > 10) {
-        newEvents = newEvents.slice(0, 10);
+      let newEvents = [event, ...events];
+      if (newEvents.length > 3) {
+        newEvents = newEvents.slice(0, 3);
       }
       return newEvents;
     });
@@ -26,18 +26,22 @@ export function Notification(props) {
 
   function createMessageArray() {
     const messageArray = [];
+    let alertClass = "alert-primary";
     for (const [i, event] of events.entries()) {
       let message = "unknown";
       if (event.type === GameEvent.End) {
-        message = `scored ${event.value.score}`;
+        message = ` scored ${event.value.score}`;
+        alertClass = "alert-primary game-start";
       } else if (event.type === GameEvent.Start) {
-        message = `started a new game`;
-      } else if (event.type === GameEvent.System) {
-        message = event.value.msg;
+        message = ` started a new game`;
+        alertClass = "alert-warning level-complete";
+      } else if (event.type === GameEvent.levelComplete) {
+        message = ` completed level ${event.value.level}`;
+        alertClass = "alert-success game-complete";
       }
 
       messageArray.push(
-        <div key={i} className="event">
+        <div key={i} className={`event alert ${alertClass}`}>
           <span className={"player-event"}>{event.from.split("@")[0]}</span>
           {message}
         </div>
@@ -48,7 +52,7 @@ export function Notification(props) {
 
   return (
     <div className="player">
-      <p className="h2"> {Player}</p>
+      <p className="h2"> User: {userName}</p>
       <ul className="alerts" role="alert">
         <div id="player-messages">{createMessageArray()}</div>
       </ul>

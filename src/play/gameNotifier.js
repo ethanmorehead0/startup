@@ -19,13 +19,27 @@ class GameEventNotifier {
   constructor() {
     setInterval(() => {
       const score = Math.floor(Math.random() * 100);
+      const level = Math.floor(Math.random() * 10);
       const userName = "Andy";
-      this.broadcast(userName, GameEvent.End, {
-        name: userName,
-        score: score,
-        date: date,
-      });
-    }, 5000);
+      switch (Math.floor((Math.random() * 100) % 3) + 1) {
+        case 1:
+          this.broadcastEvent(userName, GameEvent.levelComplete, {
+            name: userName,
+            level: level,
+          });
+          break;
+        case 2:
+          this.broadcastEvent(userName, GameEvent.Start, {
+            name: userName,
+          });
+          break;
+        case 3:
+          this.broadcastEvent(userName, GameEvent.End, {
+            name: userName,
+            score: score,
+          });
+      }
+    }, 10000);
   }
 
   broadcastEvent(from, type, value) {
@@ -50,3 +64,6 @@ class GameEventNotifier {
   //     this.listeners.forEach((listener) => listener(event));
   //   }
 }
+
+const GameNotifier = new GameEventNotifier();
+export { GameEvent, GameNotifier };

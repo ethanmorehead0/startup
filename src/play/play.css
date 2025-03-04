@@ -3,6 +3,10 @@
   background-color: #f0f0f0;
   position: fixed;
 }
+.player {
+  height: 20vh;
+  overflow: hidden;
+}
 .game-start {
   padding: 0.75vh !important;
 }

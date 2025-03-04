@@ -1,23 +1,14 @@
 import React from "react";
 import "./play.css";
+
+import { Game } from "./game";
+import { Notification } from "./notification";
+
 export function Play() {
   return (
     <main className="bg-secondary bg-light text-dark text-center align-items-center d-flex flex-column justify-content-center align-items-center">
-      <div className="player">
-        <p className="h2"> Mystery player</p>
-        <ul className="alerts" role="alert">
-          <div className="alert alert-primary game-start">
-            Andy has started the game
-          </div>
-          <div className="alert alert-warning level-complete">
-            John has completed level 2!
-          </div>
-          <div className="alert alert-success game-complete">
-            John scored 73 points!!!
-          </div>
-        </ul>
-      </div>
-
+      {/* <Game className="game" /> */}
+      <Notification className="notification" />
       <div className="game-stats">
         <span className="game-info">
           <label className="label" htmlFor="health">
