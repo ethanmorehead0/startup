@@ -1,6 +1,68 @@
 import React from "react";
 import "./scores.css";
 export function Scores() {
+  const [highscores, setHighscores] = React.useState([]);
+  const [localHighscores, setLocalHighscores] = React.useState([]);
+  // Demonstrates calling a service asynchronously so that
+  // React can properly update state objects with the results.
+  React.useEffect(() => {
+    const scoresText = localStorage.getItem("highscores");
+    if (scoresText) {
+      setHighscores(JSON.parse(scoresText));
+    }
+  }, []);
+  React.useEffect(() => {
+    const scoresText = localStorage.getItem("localHighscores");
+    if (scoresText) {
+      setLocalHighscores(JSON.parse(scoresText));
+    }
+  }, []);
+
+  // Demonstrates rendering an array with React
+  const scoreRows = [];
+  if (highscores.length) {
+    for (const [i, score] of highscores.entries()) {
+      scoreRows.push(
+        <tr key={i}>
+          <td>{i}</td>
+          <td>{score.name.split("@")[0]}</td>
+          <td>{score.score}</td>
+          <td>{score.level}</td>
+          <td>{score.date}</td>
+        </tr>
+      );
+    }
+  } else {
+    scoreRows.push(
+      <tr key="0">
+        <td colSpan="5">Top 10 has your name on it.</td>
+      </tr>
+    );
+  }
+
+  const localRows = [];
+  if (localHighscores.length) {
+    for (const [i, score] of localHighscores.entries()) {
+      scoreRows.push(
+        <tr key={i}>
+          <td>{i}</td>
+          <td>{score.name.split("@")[0]}</td>
+          <td>{score.score}</td>
+          <td>{score.level}</td>
+          <td>{score.date}</td>
+        </tr>
+      );
+    }
+  } else {
+    localRows.push(
+      <tr key="1">
+        <td colSpan="5">
+          If at first you don't succed... you'll at least still get first.
+        </td>
+      </tr>
+    );
+  }
+
   return (
     <main className="bg-light text-dark text-center align-items-center d-flex flex-column justify-content-center align-items-center">
       <h2 className="title">Top 10</h2>
@@ -14,31 +76,9 @@ export function Scores() {
             <th>Date</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Jonny</td>
-            <td>135</td>
-            <td>4</td>
-            <td>Jan 20, 2025</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Andy</td>
-            <td>134</td>
-            <td>4</td>
-            <td>Jan 2, 2025</td>
-          </tr>
-          <tr>
-            <td>3-10</td>
-            <td>...</td>
-            <td>...</td>
-            <td>...</td>
-            <td>...</td>
-          </tr>
-        </tbody>
+        <tbody id="scores">{scoreRows}</tbody>
       </table>
-      <h2 className="title">Highscore</h2>
+      <h2 className="title">Local highscore</h2>
       <table className="table table-dark table-striped table-bordered">
         <thead className="table-dark">
           <tr>
@@ -49,15 +89,7 @@ export function Scores() {
             <th>Date</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>42</td>
-            <td>Username</td>
-            <td>27</td>
-            <td>2</td>
-            <td>Jan 14, 2025</td>
-          </tr>
-        </tbody>
+        <tbody id="localScores">{localRows}</tbody>
       </table>
     </main>
   );
