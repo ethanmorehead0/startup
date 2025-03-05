@@ -5,7 +5,34 @@ import { GameEvent, GameNotifier } from "./gameNotifier";
 export function Notification(props) {
   const userName = props.userName;
 
-  const [events, setEvents] = React.useState([]);
+  const [grid, setGrid] = React.useState([]);
+  const [level, setLevel] = React.useState(1);
+  const [score, setScore] = React.useState(0);
+  const [health, setHealth] = React.useState(100);
+  const [events, setEvents] = React.useState(0);
+
+  async function createGrid() {
+    const grid = [];
+    for (let i = 0; i < level + 4; i++) {
+      const row = [];
+      for (let j = 0; j < level + 4; j++) {
+        row.push(Math.floor(Math.random() * 2));
+      }
+      grid.push(row);
+    }
+    setGrid(grid);
+  }
+
+  async function reset() {
+    setAllowPlayer(false);
+    setLevel(1);
+    setScore(0);
+    setHealth(100);
+    createGrid();
+
+    // Let other players know a new game has started
+    GameNotifier.broadcastEvent(userName, GameEvent.Start, {});
+  }
 
   React.useEffect(() => {
     GameNotifier.addHandler(handleGameEvent);

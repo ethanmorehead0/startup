@@ -3,6 +3,8 @@ import React from "react";
 import { GameEvent, GameNotifier } from "./gameNotifier";
 
 export function Game(props) {
+  const userName = props.userName;
+
   const [score, setScore] = React.useState(0);
   const [health, setHealth] = React.useState(100);
   const [gameState, setGameState] = React.useState("waiting");
