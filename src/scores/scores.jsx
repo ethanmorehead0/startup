@@ -1,34 +1,31 @@
 import React from "react";
 import "./scores.css";
+
 export function Scores() {
   const [highscores, setHighscores] = React.useState([]);
   const [localHighscores, setLocalHighscores] = React.useState([]);
-  // Demonstrates calling a service asynchronously so that
-  // React can properly update state objects with the results.
+
   React.useEffect(() => {
     const scoresText = localStorage.getItem("highscores");
+    const localScoresText = localStorage.getItem("localHighscores");
     if (scoresText) {
       setHighscores(JSON.parse(scoresText));
     }
-  }, []);
-  React.useEffect(() => {
-    const scoresText = localStorage.getItem("localHighscores");
-    if (scoresText) {
-      setLocalHighscores(JSON.parse(scoresText));
+    if (localScoresText) {
+      setLocalHighscores(JSON.parse(localScoresText));
     }
   }, []);
 
-  // Demonstrates rendering an array with React
   const scoreRows = [];
   if (highscores.length) {
-    for (const [i, score] of highscores.entries()) {
+    for (const [i, highscore] of highscores.entries()) {
       scoreRows.push(
         <tr key={i}>
           <td>{i}</td>
-          <td>{score.name.split("@")[0]}</td>
-          <td>{score.score}</td>
-          <td>{score.level}</td>
-          <td>{score.date}</td>
+          <td>{highscore.name.split("@")[0]}</td>
+          <td>{highscore.score}</td>
+          <td>{highscore.level}</td>
+          <td>{highscore.date}</td>
         </tr>
       );
     }
@@ -42,14 +39,14 @@ export function Scores() {
 
   const localRows = [];
   if (localHighscores.length) {
-    for (const [i, score] of localHighscores.entries()) {
-      scoreRows.push(
+    for (const [i, localscore] of localHighscores.entries()) {
+      localRows.push(
         <tr key={i}>
           <td>{i}</td>
-          <td>{score.name.split("@")[0]}</td>
-          <td>{score.score}</td>
-          <td>{score.level}</td>
-          <td>{score.date}</td>
+          <td>{localscore.name.split("@")[0]}</td>
+          <td>{localscore.score}</td>
+          <td>{localscore.level}</td>
+          <td>{localscore.date}</td>
         </tr>
       );
     }
