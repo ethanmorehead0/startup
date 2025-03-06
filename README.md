@@ -102,8 +102,8 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **All functionality implemented or mocked out** - I did not complete this part of the deliverable.
-- [ ] **Hooks** - I did not complete this part of the deliverable.
+- [x] **All functionality implemented or mocked out** - Lights out game is now playable and scores update properly.
+- [x] **Hooks** - Hooks used in multiple areas, most used is in the game implementation.
 
 ## 🚀 Service deliverable
 
