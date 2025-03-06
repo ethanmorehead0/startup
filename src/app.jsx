@@ -19,7 +19,7 @@ export default function App() {
     <BrowserRouter>
       <div className="body bg-dark text-light">
         <header className="container-fluid">
-          <nav className="navbar fixed-top navbar-dark px-3">
+          <nav className="navbar navbar-dark px-3">
             <div className="navbar-brand">
               <img className="logo" src="Lights_Out.ico" alt="Lights Out" />
               Lights Out Evolution
@@ -69,7 +69,7 @@ export default function App() {
             }
             exact
           />
-          <Route path="/play" element={<Play />} />
+          <Route path="/play" element={<Play userName={userName} />} />
           <Route path="/scores" element={<Scores />} />
           <Route path="/about" element={<About />} />
           <Route path="*" element={<NotFound />} />

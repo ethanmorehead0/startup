@@ -42,7 +42,9 @@ export function Notification(props) {
 
       messageArray.push(
         <div key={i} className={`event alert ${alertClass}`}>
-          <span className={"player-event"}>{event.from.split("@")[0]}</span>
+          <span className={"player-event"}>
+            {event.from ? event.from.split("@")[0] : "unknown"}
+          </span>
           {message}
         </div>
       );
