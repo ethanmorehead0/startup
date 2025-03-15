@@ -161,11 +161,18 @@ export function Game(props) {
       date: date,
     };
 
-    // Let other players know the game has concluded
-    GameNotifier.broadcastEvent(userName, GameEvent.End, newScore);
-
     updateScoresLocal(newScore);
     updateScores(newScore);
+    const newS = { name: userName, score: newScore, level: level, date: date };
+
+    await fetch("/api/score", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(newS),
+    });
+
+    // Let other players know the game has concluded
+    GameNotifier.broadcastEvent(userName, GameEvent.End, newS);
   }
 
   async function updateScoresLocal(newScore) {

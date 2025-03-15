@@ -1,22 +1,29 @@
 const cookieParser = require("cookie-parser");
 const bcrypt = require("bcryptjs");
-const uuid = require("uuid");
-
 const express = require("express");
+const uuid = require("uuid");
 const app = express();
 
-const port = process.argv.length > 2 ? process.argv[2] : 4000;
+const authCookieName = "token";
 
-app.listen(port, () => {
-  console.log("Listening on port ${port}");
-});
-
-app.use(express.json());
-
+// The scores and users are saved in memory and disappear whenever the service is restarted.
 let users = [];
 let scores = [];
 
-let apiRouter = express.Router();
+// The service port. In production the front-end code is statically hosted by the service on the same port.
+const port = process.argv.length > 2 ? process.argv[2] : 3000;
+
+// JSON body parsing using built-in middleware
+app.use(express.json());
+
+// Use the cookie parser middleware for tracking authentication tokens
+app.use(cookieParser());
+
+// Serve up the front-end static content hosting
+app.use(express.static("public"));
+
+// Router for service endpoints
+var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
 // CreateAuth a new user
@@ -86,6 +93,7 @@ app.use((_req, res) => {
   res.sendFile("index.html", { root: "public" });
 });
 
+// updateScores considers a new score for inclusion in the high scores.
 function updateScores(newScore) {
   let found = false;
   for (const [i, prevScore] of scores.entries()) {
@@ -135,41 +143,6 @@ function setAuthCookie(res, authToken) {
   });
 }
 
-// GetScores
-apiRouter.get("/scores", verifyAuth, (_req, res) => {
-  res.send(scores);
+app.listen(port, () => {
+  console.log(`Listening on port ${port}`);
 });
-
-// app.use(express.static("public"));
-
-// import { defineConfig } from "vite";
-
-// export default defineConfig({
-//   server: {
-//     proxy: {
-//       "/api": "http://localhost:4000",
-//     },
-//   },
-// });
-
-// apiRouter.post("/auth/login", async (req, res) => {
-//   const user = await findUser("email", req.body.email);
-//   if (user) {
-//     if (await bcrypt.compare(req.body.password, user.password)) {
-//       user.token = uuid.v4();
-//       setAuthCookie(res, user.token);
-//       res.send({ email: user.email });
-//       return;
-//     }
-//   }
-//   res.status(401).send({ msg: "Unauthorized" });
-// });
-
-// apiRouter.delete("/auth/logout", (req, res) => {
-//     const user = await findUser('token', req.cookies[authCookieName]);
-//     if (user) {
-//       delete user.token;
-//     }
-//     res.clearCookie(authCookieName);
-//     res.status(204).end();
-// });
