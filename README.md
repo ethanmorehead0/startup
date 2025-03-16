@@ -109,11 +109,11 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Node.js/Express HTTP service** - I did not complete this part of the deliverable.
-- [ ] **Static middleware for frontend** - I did not complete this part of the deliverable.
-- [ ] **Calls to third party endpoints** - I did not complete this part of the deliverable.
-- [ ] **Backend service endpoints** - I did not complete this part of the deliverable.
-- [ ] **Frontend calls service endpoints** - I did not complete this part of the deliverable.
+- [x] **Node.js/Express HTTP service** - Service create and running.
+- [x] **Static middleware for frontend** - ./service/index contains simple endpoints for scores and login data.
+- [x] **Calls to third party endpoints** - Jokes on the main screen reach out to a 3rd party endpoint.
+- [x] **Backend service endpoints** - endpoints for login, logout, create user and saving and retrieving scores implemented
+- [x] **Frontend calls service endpoints** - all mocked out endpoints now call the backend services.
 
 ## 🚀 DB/Login deliverable
 
