@@ -163,7 +163,7 @@ export function Game(props) {
 
     updateScoresLocal(newScore);
     updateScores(newScore);
-    const newS = { name: userName, score: newScore, level: level, date: date };
+    const newS = { name: userName, score: score, level: level, date: date };
 
     await fetch("/api/score", {
       method: "POST",

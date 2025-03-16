@@ -6,11 +6,13 @@ export function Scores() {
   const [localHighscores, setLocalHighscores] = React.useState([]);
 
   React.useEffect(() => {
-    const scoresText = localStorage.getItem("highscores");
+    fetch("/api/scores")
+      .then((response) => response.json())
+      .then((scores) => {
+        setHighscores(scores);
+      });
+
     const localScoresText = localStorage.getItem("localHighscores");
-    if (scoresText) {
-      setHighscores(JSON.parse(scoresText));
-    }
     if (localScoresText) {
       setLocalHighscores(JSON.parse(localScoresText));
     }
