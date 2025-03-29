@@ -24,7 +24,7 @@ app.use(cookieParser());
 app.use(express.static("public"));
 
 // Router for service endpoints
-var apiRouter = express.Router();
+const apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
 // CreateAuth a new user
@@ -76,13 +76,13 @@ const verifyAuth = async (req, res, next) => {
 };
 
 // GetScores
-apiRouter.get("/scores", verifyAuth, (_req, res) => {
-  const scores = DB.getHighScores();
+apiRouter.get("/scores", verifyAuth, async (_req, res) => {
+  const scores = await DB.getHighScores();
   res.send(scores);
 });
 
 // SubmitScore
-apiRouter.post("/score", verifyAuth, (req, res) => {
+apiRouter.post("/score", verifyAuth, async (req, res) => {
   const scores = updateScores(req.body);
   res.send(scores);
 });
@@ -127,7 +127,7 @@ async function createUser(email, password) {
     password: passwordHash,
     token: uuid.v4(),
   };
-  users.push(user);
+
   await DB.addUser(user);
 
   return user;
@@ -139,7 +139,7 @@ async function findUser(field, value) {
   if (field === "token") {
     return DB.getUserByToken(value);
   }
-  return useDebugValue.getUser(value);
+  return DB.getUser(value);
 }
 
 // setAuthCookie in the HTTP response
@@ -151,6 +151,6 @@ function setAuthCookie(res, authToken) {
   });
 }
 
-app.listen(port, () => {
+const httpService = app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
