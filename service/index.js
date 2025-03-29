@@ -98,25 +98,25 @@ app.use((_req, res) => {
 });
 
 // updateScores considers a new score for inclusion in the high scores.
-function updateScores(newScore) {
-  let found = false;
-  for (const [i, prevScore] of scores.entries()) {
-    if (newScore.score > prevScore.score) {
-      scores.splice(i, 0, newScore);
-      found = true;
-      break;
-    }
-  }
+async function updateScores(newScore) {
+  await DB.addScore(newScore);
+  return DB.getHighScores();
+  // let found = false;
+  // for (const [i, prevScore] of scores.entries()) {
+  //   if (newScore.score > prevScore.score) {
+  //     scores.splice(i, 0, newScore);
+  //     found = true;
+  //     break;
+  //   }
+  // }
 
-  if (!found) {
-    scores.push(newScore);
-  }
+  // if (!found) {
+  //   scores.push(newScore);
+  // }
 
-  if (scores.length > 10) {
-    scores.length = 10;
-  }
-
-  return scores;
+  // if (scores.length > 10) {
+  //   scores.length = 10;
+  // }
 }
 
 async function createUser(email, password) {
@@ -128,6 +128,7 @@ async function createUser(email, password) {
     token: uuid.v4(),
   };
   users.push(user);
+  await DB.addUser(user);
 
   return user;
 }
@@ -135,7 +136,10 @@ async function createUser(email, password) {
 async function findUser(field, value) {
   if (!value) return null;
 
-  return users.find((u) => u[field] === value);
+  if (field === "token") {
+    return DB.getUserByToken(value);
+  }
+  return useDebugValue.getUser(value);
 }
 
 // setAuthCookie in the HTTP response
