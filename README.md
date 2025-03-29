@@ -119,11 +119,11 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **User registration** - I did not complete this part of the deliverable.
-- [ ] **User login and logout** - I did not complete this part of the deliverable.
-- [ ] **Stores data in MongoDB** - I did not complete this part of the deliverable.
-- [ ] **Stores credentials in MongoDB** - I did not complete this part of the deliverable.
-- [ ] **Restricts functionality based on authentication** - I did not complete this part of the deliverable.
+- [x] **User registration** - A user can be registered and put into the DB
+- [x] **User login and logout** - A user can sussefuly login and logout.
+- [x] **Stores data in MongoDB** - Global High score is stored in the Database. (Local Highscore is still in the browser)
+- [x] **Stores credentials in MongoDB** - All credentials use the DB
+- [x] **Restricts functionality based on authentication** - You can not access the scores unless you are signed in.
 
 ## 🚀 WebSocket deliverable
 
