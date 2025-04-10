@@ -100,11 +100,11 @@ export function Game(props) {
 
   async function levelUp() {
     createGrid(level + 1);
-    setScore(score + (level + 4) ** 2 + Math.floor(health / 10));
+    setScore(score + (level + 4) ** 3 + Math.floor(health / 10));
     setHealth(health + (level + 5) * 3);
     setLevel(level + 1);
 
-    GameNotifier.broadcastEvent(userName, GameEvent.LevelUp, {});
+    GameNotifier.broadcastEvent(userName, GameEvent.LevelUp, level + 1);
   }
 
   function handleCellClick(rowIndex, cellIndex) {
