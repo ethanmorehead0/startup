@@ -17,9 +17,6 @@ export function Notification(props) {
   function handleGameEvent(event) {
     setEvents((events) => {
       let newEvents = [event, ...events];
-      if (newEvents.length > 3) {
-        newEvents = newEvents.slice(0, 3);
-      }
       return newEvents;
     });
   }
@@ -38,13 +35,13 @@ export function Notification(props) {
       } else if (event.type === GameEvent.levelComplete) {
         message = ` completed level ${event.value.level}`;
         alertClass = "alert-success game-complete";
+      } else if (event.type === GameEvent.System) {
+        message = event.value.msg;
       }
 
       messageArray.push(
         <div key={i} className={`event alert ${alertClass}`}>
-          <span className={"player-event"}>
-            {event.from ? event.from.split("@")[0] : "unknown"}
-          </span>
+          <span className={"player-event"}>{event.from.split("@")[0]}</span>
           {message}
         </div>
       );

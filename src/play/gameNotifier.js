@@ -2,6 +2,7 @@ const GameEvent = {
   System: "system",
   End: "gameEnd",
   Start: "gameStart",
+  levelComplete: "levelComplete",
 };
 
 class EventMessage {
@@ -24,12 +25,12 @@ class GameEventNotifier {
     );
     this.socket.onopen = (event) => {
       this.receiveEvent(
-        new EventMessage("Simon", GameEvent.System, { msg: "connected" })
+        new EventMessage("", GameEvent.System, { msg: "connected" })
       );
     };
     this.socket.onclose = (event) => {
       this.receiveEvent(
-        new EventMessage("Simon", GameEvent.System, { msg: "disconnected" })
+        new EventMessage("", GameEvent.System, { msg: "disconnected" })
       );
     };
     this.socket.onmessage = async (msg) => {

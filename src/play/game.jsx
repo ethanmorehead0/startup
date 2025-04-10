@@ -104,7 +104,7 @@ export function Game(props) {
     setHealth(health + (level + 5) * 3);
     setLevel(level + 1);
 
-    GameNotifier.broadcastEvent(userName, GameEvent.LevelUp, level + 1);
+    GameNotifier.broadcastEvent(userName, GameEvent.levelComplete, level + 1);
   }
 
   function handleCellClick(rowIndex, cellIndex) {
