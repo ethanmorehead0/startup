@@ -17,34 +17,32 @@ class GameEventNotifier {
   handlers = [];
 
   constructor() {
-    setInterval(() => {
-      const score = Math.floor(Math.random() * 100);
-      const level = Math.floor(Math.random() * 10);
-      const userName = "Andy";
-      switch (Math.floor((Math.random() * 100) % 3) + 1) {
-        case 1:
-          this.broadcastEvent(userName, GameEvent.levelComplete, {
-            name: userName,
-            level: level,
-          });
-          break;
-        case 2:
-          this.broadcastEvent(userName, GameEvent.Start, {
-            name: userName,
-          });
-          break;
-        case 3:
-          this.broadcastEvent(userName, GameEvent.End, {
-            name: userName,
-            score: score,
-          });
-      }
-    }, 10000);
+    let port = window.location.port;
+    const protocol = window.location.protocol === "http:" ? "ws" : "wss";
+    this.socket = new WebSocket(
+      `${protocol}://${window.location.hostname}:${port}/ws`
+    );
+    this.socket.onopen = (event) => {
+      this.receiveEvent(
+        new EventMessage("Simon", GameEvent.System, { msg: "connected" })
+      );
+    };
+    this.socket.onclose = (event) => {
+      this.receiveEvent(
+        new EventMessage("Simon", GameEvent.System, { msg: "disconnected" })
+      );
+    };
+    this.socket.onmessage = async (msg) => {
+      try {
+        const event = JSON.parse(await msg.data.text());
+        this.receiveEvent(event);
+      } catch {}
+    };
   }
 
   broadcastEvent(from, type, value) {
     const event = new EventMessage(from, type, value);
-    this.receiveEvent(event);
+    this.socket.send(JSON.stringify(event));
   }
 
   addHandler(handler) {
@@ -57,12 +55,13 @@ class GameEventNotifier {
 
   receiveEvent(event) {
     this.events.push(event);
-    this.handlers.forEach((handler) => handler(event));
-  }
 
-  //   notifyAll(event) {
-  //     this.listeners.forEach((listener) => listener(event));
-  //   }
+    this.events.forEach((e) => {
+      this.handlers.forEach((handler) => {
+        handler(e);
+      });
+    });
+  }
 }
 
 const GameNotifier = new GameEventNotifier();
